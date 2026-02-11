@@ -1,6 +1,6 @@
 import json
-from .EnterpriseManagementException import EnterpriseManagementException
-from .EnterpriseRequest import EnterpriseRequest
+from EnterpriseManagementException import EnterpriseManagementException
+from EnterpriseRequest import EnterpriseRequest
 
 PRE = {"J":0, "A":1, "B":2, "C":3, "D":4, "E":5, "F":6, "G":7, "H":8, "I":9}
 
@@ -58,3 +58,16 @@ class EnterpriseManager:
         if not self.validate_cif(t_cif) :
             raise EnterpriseManagementException("Invalid FROM IBAN")
         return req
+
+if __name__ == "__main__":
+    manager = EnterpriseManager()
+
+    valid_cifs = [
+        "A12345674",  # numeric control digit
+        "J94058213"  # numeric control digit
+    ]
+
+    print("=== VALIDATE_CIF TESTS ===")
+    for ex_cif in valid_cifs:
+        print(ex_cif, "->", manager.validate_cif(ex_cif))
+
