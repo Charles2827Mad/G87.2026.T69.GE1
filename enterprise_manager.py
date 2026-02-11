@@ -1,3 +1,5 @@
+"""EnterpriseManager model contains the logic for CIF validation and JSON processing."""
+
 import json
 from EnterpriseManagementException import EnterpriseManagementException
 from EnterpriseRequest import EnterpriseRequest
@@ -5,11 +7,14 @@ from EnterpriseRequest import EnterpriseRequest
 PRE = {"J":0, "A":1, "B":2, "C":3, "D":4, "E":5, "F":6, "G":7, "H":8, "I":9}
 
 class EnterpriseManager:
+    """EnterpriseManager class contains the logic for CIF validation."""
+
     def __init__(self):
         pass
 
     @staticmethod
     def validate_cif(cif):
+
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
         # RETURN TRUE IF THE GUID IS RIGHT, OR FALSE IN OTHER CASE
         if len(cif) != 9 or cif[0] not in PRE or not cif[1:].isdigit():
@@ -34,8 +39,8 @@ class EnterpriseManager:
         # Last character can be a digit or a letter
         if last_char.isdigit():
             return control_digit == int(last_char)
-        else:
-            return control_digit == PRE.get(last_char, -1)
+
+        return control_digit == PRE.get(last_char, -1)
 
     def read_product_code_from_json( self, fi ):
 
@@ -46,7 +51,6 @@ class EnterpriseManager:
             raise EnterpriseManagementException("Wrong file or file path") from e
         except json.JSONDecodeError as e:
             raise EnterpriseManagementException("JSON Decode Error - Wrong JSON Format") from e
-
 
         try:
             t_cif = data["cif"]
@@ -70,4 +74,3 @@ if __name__ == "__main__":
     print("=== VALIDATE_CIF TESTS ===")
     for ex_cif in valid_cifs:
         print(ex_cif, "->", manager.validate_cif(ex_cif))
-

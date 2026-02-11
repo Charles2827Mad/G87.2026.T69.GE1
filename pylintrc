@@ -295,7 +295,9 @@ exclude-too-few-public-methods=
 ignored-parents=
 
 # Maximum number of arguments for function / method.
-max-args=5
+#MODIFIED RULE
+#max-args=5
+max-args=3
 
 # Maximum number of attributes for a class (see R0902).
 max-attributes=7
@@ -322,7 +324,9 @@ max-public-methods=20
 max-returns=6
 
 # Maximum number of statements in function / method body.
-max-statements=50
+#MODIFIED RULE
+#max-statements=50
+max-statements=20
 
 # Minimum number of public methods for a class (see R0903).
 min-public-methods=2
@@ -352,10 +356,14 @@ indent-string='    '
 # Maximum number of characters on a single line. Pylint's default of 100 is
 # based on PEP 8's guidance that teams may choose line lengths up to 99
 # characters.
-max-line-length=100
+#MODIFIED RULE
+#max-line-length=100
+max-line-length=120
 
 # Maximum number of lines in a module.
-max-module-lines=1000
+#MODIFIED RULE
+#max-module-lines=1000
+max-module-lines=80
 
 # Allow the body of a class to be on the same line as the declaration if body
 # contains single statement.
@@ -632,7 +640,9 @@ signature-mutators=
 additional-builtins=
 
 # Tells whether unused global variables should be treated as a violation.
-allow-global-unused-variables=yes
+#MODIFIED RULE
+#allow-global-unused-variables=yes
+allow-global-unused-variables=no
 
 # List of names allowed to shadow builtins
 allowed-redefined-builtins=
