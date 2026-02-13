@@ -6,7 +6,7 @@ from EnterpriseRequest import EnterpriseRequest
 
 PRE = {"J":0, "A":1, "B":2, "C":3, "D":4, "E":5, "F":6, "G":7, "H":8, "I":9}
 
-class EnterpriseManager:
+class ENTERPRISE_MANAGER:
     """EnterpriseManager class contains the logic for CIF validation."""
     def __init__(self):
         pass
@@ -15,7 +15,7 @@ class EnterpriseManager:
     def validate_cif(cif):
         # MODIFIED CODE:
         import inspect
-        print("validate_cif lines:", len(inspect.getsource(EnterpriseManager.validate_cif).splitlines()))
+        print("validate_cif lines:", len(inspect.getsource(ENTERPRISE_MANAGER.validate_cif).splitlines()))
 
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
         # RETURN TRUE IF THE GUID IS RIGHT, OR FALSE IN OTHER CASE
@@ -67,7 +67,7 @@ class EnterpriseManager:
         return req
 
 if __name__ == "__main__":
-    manager = EnterpriseManager()
+    manager = ENTERPRISE_MANAGER()
 
     valid_cifs = [
         "A12345674",  # numeric control digit
