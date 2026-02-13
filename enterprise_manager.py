@@ -13,9 +13,13 @@ class EnterpriseManager:
 
     @staticmethod
     def validate_cif(cif):
+        # MODIFIED CODE:
+        import inspect
+        print("validate_cif lines:", len(inspect.getsource(EnterpriseManager.validate_cif).splitlines()))
 
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
         # RETURN TRUE IF THE GUID IS RIGHT, OR FALSE IN OTHER CASE
+
         if len(cif) != 9 or cif[0] not in PRE or not cif[1:].isdigit():
             return False
         even_pos_sum = 0
